@@ -22,10 +22,12 @@ BRp.recalculateNodeLabelProjection = function( node ){
 
   switch( textHalign ){
     case 'left':
+    case 'left-inner':
       textX = nodePos.x - nodeWidth / 2 - padding;
       break;
 
     case 'right':
+    case 'right-inner':
       textX = nodePos.x + nodeWidth / 2 + padding;
       break;
 
@@ -35,10 +37,12 @@ BRp.recalculateNodeLabelProjection = function( node ){
 
   switch( textValign ){
     case 'top':
+    case 'top-inner':
       textY = nodePos.y - nodeHeight / 2 - padding;
       break;
 
     case 'bottom':
+    case 'bottom-inner':
       textY = nodePos.y + nodeHeight / 2 + padding;
       break;
 
@@ -441,8 +445,10 @@ BRp.getLabelJustification = function(ele){
     if( ele.isNode() ){
       switch( textHalign ){
         case 'left':
+        case 'left-inner':
           return 'right';
         case 'right':
+        case 'right-inner':
           return 'left';
         default:
           return 'center';

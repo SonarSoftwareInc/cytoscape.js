@@ -222,11 +222,24 @@ CRp.drawText = function( context, ele, prefix, applyRotation = true, useEleOpaci
       textY = 0;
     }
 
+    switch( halign ){
+      case 'left-inner':
+        textX += textW;
+        break;
+      case 'right-inner':
+        textX -= textW;
+        break;
+    }
     switch( valign ){
       case 'top':
         break;
+      case 'top-inner':
+        textY += textH;
+        break;
       case 'center':
         textY += textH / 2;
+        break;
+      case 'bottom-inner':
         break;
       case 'bottom':
         textY += textH;
@@ -243,12 +256,14 @@ CRp.drawText = function( context, ele, prefix, applyRotation = true, useEleOpaci
 
       switch( halign ){
         case 'left':
+        case 'left-inner':
           bgX -= textW;
           break;
         case 'center':
           bgX -= textW / 2;
           break;
         case 'right':
+        case 'right-inner':
           break;
       }
 
@@ -328,7 +343,7 @@ CRp.drawText = function( context, ele, prefix, applyRotation = true, useEleOpaci
 
       if( justification === 'auto' ){
         // then it's already ok, so skip all the other ifs
-      } else if( halign === 'left' ){ // auto justification : right
+      } else if( halign === 'left' || halign === 'left-inner' ){ // auto justification : right
         if( justification === 'left' ){
           textX += -textW;
         } else if( justification === 'center' ){
@@ -340,7 +355,7 @@ CRp.drawText = function( context, ele, prefix, applyRotation = true, useEleOpaci
         } else if( justification === 'right' ){
           textX += halfTextW;
         } // else same as auto
-      } else if( halign === 'right' ){ // auto justification : left
+      } else if( halign === 'right' || halign === 'right-inner' ){ // auto justification : left
         if( justification === 'center' ){
           textX += halfTextW;
         } else if( justification === 'right' ){
@@ -350,10 +365,12 @@ CRp.drawText = function( context, ele, prefix, applyRotation = true, useEleOpaci
 
       switch( valign ){
         case 'top':
+        case 'top-inner':
           textY -= ( lines.length - 1 ) * lineHeight;
           break;
         case 'center':
         case 'bottom':
+        case 'bottom-inner':
           textY -= ( lines.length - 1 ) * lineHeight;
           break;
       }

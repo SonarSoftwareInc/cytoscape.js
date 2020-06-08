@@ -304,6 +304,7 @@ let updateBoundsFromLabel = function( bounds, ele, prefix ){
     } else {
       switch( halign.value ){
         case 'left':
+        case 'right-inner':
           lx1 = labelX - lw;
           lx2 = labelX;
           break;
@@ -314,6 +315,7 @@ let updateBoundsFromLabel = function( bounds, ele, prefix ){
           break;
 
         case 'right':
+        case 'left-inner':
           lx1 = labelX;
           lx2 = labelX + lw;
           break;
@@ -321,6 +323,7 @@ let updateBoundsFromLabel = function( bounds, ele, prefix ){
 
       switch( valign.value ){
         case 'top':
+        case 'bottom-inner':
           ly1 = labelY - lh;
           ly2 = labelY;
           break;
@@ -331,6 +334,7 @@ let updateBoundsFromLabel = function( bounds, ele, prefix ){
           break;
 
         case 'bottom':
+        case 'top-inner':
           ly1 = labelY;
           ly2 = labelY + lh;
           break;
@@ -370,20 +374,24 @@ let updateBoundsFromLabel = function( bounds, ele, prefix ){
       if( !isEdge ){
         switch( halign.value ){
           case 'left':
+          case 'left-inner':
             xo = lx2;
             break;
 
           case 'right':
+          case 'right-inner':
             xo = lx1;
             break;
         }
 
         switch( valign.value ){
           case 'top':
+          case 'top-inner':
             yo = ly2;
             break;
 
           case 'bottom':
+          case 'bottom-inner':
             yo = ly1;
             break;
         }

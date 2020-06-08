@@ -169,18 +169,22 @@ function CanvasRenderer( options ){
     if( ele.isNode() ){
       switch( ele.pstyle('text-halign').value ){
         case 'left':
+        case 'left-inner':
           p.x = -bb.w;
           break;
         case 'right':
+        case 'right-inner':
           p.x = 0;
           break;
       }
 
       switch( ele.pstyle('text-valign').value ){
         case 'top':
+        case 'top-inner':
           p.y = -bb.h;
           break;
         case 'bottom':
+        case 'bottom-inner':
           p.y = 0;
           break;
       }

@@ -145,9 +145,9 @@ BRp.findEndpoints = function( edge ){
       }
 
       let ha = target.pstyle('text-halign').value;
-      if( ha === 'left' ){
+      if( ha === 'left' || ha === 'left-inner' ){
         lx -= lw2;
-      } else if( ha === 'right' ){
+      } else if( ha === 'right' || ha === 'right-inner' ){
         lx += lw2;
       }
 
@@ -237,9 +237,9 @@ BRp.findEndpoints = function( edge ){
       }
 
       let ha = source.pstyle('text-halign').value;
-      if( ha === 'left' ){
+      if( ha === 'left' || ha === 'left-inner' ){
         lx -= lw2;
-      } else if( ha === 'right' ){
+      } else if( ha === 'right' || ha === 'right-inner' ){
         lx += lw2;
       }
 
